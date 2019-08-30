@@ -10,4 +10,6 @@
 
 > "Was habt ihr im Angebot?"
 
-![Example Image](https://i.ibb.co/cQ85kFC/image.png)
+![INEZ MAIN](https://i.ibb.co/cQ85kFC/image.png)
+
+![INEZ EKL] (https://i.ibb.co/7z0L4cF/image.png)

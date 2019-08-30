@@ -1,7 +1,7 @@
 # INEZ - Intelligente Einkausfliste IT-Talents Challenge
-# Main
+### Main
 ![INEZ MAIN](https://i.ibb.co/cQ85kFC/image.png)
-# Example Commands
+## Example Commands
 > "Ich brauche ..."
 
 > "Ich brauche nicht ..."
@@ -16,13 +16,13 @@
 ![INEZ EKL](https://i.ibb.co/7z0L4cF/image.png)
 
 
-## Installation
+# Installation
 ```console
 $ git clone <repo>
 $ npm install
 ```
 
-## Running
+# Running
 ```
 $ npm start
 ```

@@ -1,0 +1,31 @@
+.list-group-item{
+    padding: 1px;
+    margin-left: 5px;
+    width: 100%;
+    height: auto;
+}
+
+.chatmsg {
+    background-color: orange;
+    color: white;
+    border: 1px solid red;
+    border-radius: 12px;
+    padding: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.chatmsgedeka {
+    background-color: rgb(39, 96, 110);
+    color: white;
+    border: 1px solid red;
+    border-radius: 12px;
+    padding: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.img-responsive {
+    width: 25%;
+    height: auto;
+}

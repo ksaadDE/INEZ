@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Intelligente Einkaufsliste (INEZ)</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./app.css">
+  </head>
+  <body>
+    <center>
+      <img src="./eddi.jpg" class="img-responsive" width="50%">
+      <h1>Intelligente Einkaufsliste (INEZ) </h1>
+    </center>
+    <hr>
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="row">
+              <div class="col-lg-8 col-md-6">
+                  <input id="productinp" type="text" class="form-control" placeholder="Was benötigen Sie?">
+              </div>
+              <div class="col-lg-4 col-md-2">
+                  <button type="submit" onclick="sendButton()" class="btn btn-success">Absenden</button>  
+                <!-- <button onclick="addproducttolist()" class="btn btn-success">+</button> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-12 col-sm-4">
+            <hr>
+            <div id="chat">
+
+            </div>
+            <div id="productlist" class="list-group col-lg-8 col-md-12 col-">
+                <!-- <a onclick="removeFromList(this)" id="placeholder" style="display: none;" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item  <span class="badge badge-primary badge-pill">14</span></a> -->
+              
+            </div>
+          </div>
+        </div>
+
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>

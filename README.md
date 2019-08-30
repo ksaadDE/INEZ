@@ -10,4 +10,4 @@
 
 > "Was habt ihr im Angebot?"
 
-![Example Image](https://ibb.co/7KpcjWR)
+![Example Image](https://i.ibb.co/cQ85kFC/image.png)

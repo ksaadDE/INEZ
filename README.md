@@ -18,7 +18,11 @@
 
 ## Installation
 ```console
-$ git clone ...
+$ git clone <repo>
 $ npm install
+```
+
+## Running
+```
 $ npm start
 ```

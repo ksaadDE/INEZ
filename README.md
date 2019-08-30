@@ -14,3 +14,11 @@
 
 > "EKL" / "Einkaufsliste"
 ![INEZ EKL](https://i.ibb.co/7z0L4cF/image.png)
+
+
+## Installation
+```console
+$ git clone ...
+$ npm install
+$ npm start
+```

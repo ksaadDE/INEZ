@@ -83,6 +83,12 @@ $("body").keydown(function (event) {
   }
 });
 
+$( "#chat" ).ready(function() {
+  console.log( "ready!" );
+  var answer = calcAnswer("Hey", "greeting");
+  addToChat(answer, true);
+});
+
 $("#productinp").keydown(function (event) {
   var keypressed = event.keyCode || event.which;
   if (keypressed == 13) {
@@ -154,8 +160,13 @@ function calcAnswer(inp, cat){
     return showOffers();
   }
 
+  if(cat == "help") {
+    clearChat();
+    return showHelp();
+  }
+
   if(cat == "greeting"){
-    return "Hey, ich bin der EDEKA INEZ Einkaufslistenbot.<br>Ich verwalte diese Einkaufsliste! Bitte schreiben Sie mir einfach, was Sie möchten.";
+    return "Hey, ich bin der EDEKA INEZ Einkaufslistenbot.<br>Ich verwalte diese Einkaufsliste! Bitte schreiben Sie mir einfach, was Sie möchten. <br> <hr>" + showHelp();
   } else if(cat == "removeitem") {
     var productname = "";
     if(inp.includes("keinen"))productname = inp.split("keinen")[1];
@@ -215,8 +226,6 @@ function calcAnswer(inp, cat){
           productname = spl1[1].split(" ")[1];
         } else productname = "";
         if(productname == undefined || productname.length == 0)productname = oldproductname.split("g")[1].split(" ")[1];
-        console.log(productname);
-        console.log(g);
         window.suggestionsbyunitweight = true;
          return productsView(replaceString(productname, " ",""), (g), true, "kg")
        }
@@ -262,6 +271,7 @@ function productsView(productname, amount,  exactunit=false, unit=""){
   amount = parseInt(amount);
   console.log(amount);
   var suggestions=suggestionsByProductname(productname, exactunit, unit, amount);
+  clearChat();
   var strv = "Folgende Produkte stehen zur Auswahl: <br> <small>Einfach die Zahl eingeben!</small> <br>";
   if (suggestions.length > 1 ) {
     var i = 0;
@@ -299,6 +309,7 @@ function sendButton(){
   }
   addToChat(answer, true);
   $("#productinp").val("");
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
 }
 
 
@@ -367,4 +378,16 @@ function addToBuyList (item, amount) {
 
 function showOffers(){
   return "Hey, wir haben gerade nichts im Angebot!";
+}
+
+function showHelp() {
+  return "Folgende Befehle sind zulässig: <br>\
+  Was habt ihr im Angebot?  - Zeigt alle Angebote <br>\
+  EKL / Einkaufsliste - Zeigt die Einkaufsliiste an  <br>\
+  Ich brauche ... - Kann ein Produkt der Liste hinzufügen <br>\
+  Ich benötige... - Kann ein Produkt der Liste hinzufügen <br>\
+  Ich benötige doch nicht ... - Entfernt ein Produkt aus d. Liste <br> \
+  Ich brauche doch nicht... - Entfernt ein Produkt der Liste <br> \
+  Hey / Hi / Hallo - Begrü&szumlung <br> \
+  Tschüss / Bye - Verabschiedung <br> ";
 }

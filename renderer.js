@@ -24,27 +24,56 @@ window.suggestions = [];
 window.suggestionsitemamount = 0;
 window.suggestionsbyunitweight = false;
 
+
+function goUp(){
+  if(window.chatItemsFull.length > 0) {
+    var ownMessages = [];
+    window.chatItemsFull.forEach(function (el) {
+      if(!el["sender"])ownMessages.push(el);
+    });
+
+    var l = ownMessages.length;
+    if(ownMessages[l-1] == undefined)return;
+    if(window.upselector == 0) {
+      window.upselector = l-1;
+    } else {
+      window.upselector--;
+    }
+    if(l-window.upselector < 0 )window.upselector = 0;
+    if(window.upselector > l-1)window.upselector = l-1;
+    var content = ownMessages[window.upselector]["contentplain"];
+    $("#productinp").val(content);
+    ownMessages = [];
+  }
+}
+
+function goDown(){
+  if(window.chatItemsFull.length > 0) {
+    var ownMessages = [];
+    window.chatItemsFull.forEach(function (el) {
+      if(!el["sender"])ownMessages.push(el);
+    });
+
+    if(ownMessages[0] == undefined)return;
+    if(window.upselector < 0) {
+      window.upselector = 0;
+    } else {
+      window.upselector++;
+    }
+    var content = ownMessages[window.upselector]["contentplain"];
+    $("#productinp").val(content);
+    ownMessages = [];
+  }
+}
+
 $("body").keydown(function (event) {
   var keypressed = event.keyCode || event.which;
   if(keypressed == 38){
-    if(window.chatItemsFull.length > 0) {
-      var ownMessages = [];
-      window.chatItemsFull.forEach(function (el) {
-        if(!el["sender"])ownMessages.push(el);
-      });
+    goUp();
+  }
 
-      var l = ownMessages.length;
-      if(ownMessages[l-1] == undefined)return;
-      if(window.upselector == 0) {
-        window.upselector = l-1;
-      } else {
-        window.upselector--;
-      }
-      if(l-window.upselector < 0 )window.upselector = 0;
-      var content = ownMessages[window.upselector]["contentplain"];
-      $("#productinp").val(content);
-      ownMessages = [];
-    }
+  if(keypressed == 40){
+    goDown();
   }
 });
 
@@ -52,6 +81,14 @@ $("#productinp").keydown(function (event) {
   var keypressed = event.keyCode || event.which;
   if (keypressed == 13) {
     sendButton();
+  }
+
+  if(keypressed == 38){
+    goUp();
+  }
+
+  if(keypressed == 40){
+    goDown();
   }
 });
 
@@ -250,8 +287,8 @@ function sendButton(){
   // console.log(cat);
   var answer = calcAnswer(text, cat);
   if(answer == null)return;
-  clearChat();
-  if(suggestions.length > 0){
+  //clearChat(false);
+  if(suggestions.length == 0){
     addToChat(text, false);
   }
   addToChat(answer, true);
@@ -264,6 +301,7 @@ function clearChat(){
   window.chatItems = [];
   $("#chat").html(" ");
 }
+
 function addToChat(message, edeka=false){
   if(message == undefined || message.length == 0)return;
   if(window.chatItems.length > 4)clearChat();

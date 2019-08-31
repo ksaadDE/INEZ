@@ -1,3 +1,8 @@
+/**
+ * Product Class
+ * Author: Karim Saad
+ * Month/Year: 08/2019
+ */
 const PDefaults = {
     name: null,
     baseprice: null,

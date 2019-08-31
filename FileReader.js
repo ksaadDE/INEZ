@@ -1,11 +1,17 @@
 const fs = require('fs');
+
+/**
+ * FileReader Class - Reads Files
+ * Author: Karim Saad
+ * Month/Year: 08/2019
+ */
 class FileReader {
     ReadFile(filename) {
         try {
-        const data = fs.readFileSync(filename, 'utf8')
-        return data;
+            const data = fs.readFileSync(filename, 'utf8')
+            return data;
         } catch (err) {
-        console.error(err)
+            console.error(err)
         }
         return null;
     }

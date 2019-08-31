@@ -1,3 +1,8 @@
+/**
+ * Word2Number 
+ * Author: Karim Saad
+ * Month/Year: 08/2019
+ */
 const replaceString = require('replace-string');
 
 const word2Number = function (inp) {

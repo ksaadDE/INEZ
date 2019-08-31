@@ -1,3 +1,7 @@
+/**
+ * Hashcode Function (used in Product.js)
+ * @param {*} str 
+ */
 const hashcode = function(str) {
     var hash = 0, i, chr;
     if (str.length === 0) return hash;

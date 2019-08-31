@@ -4,6 +4,8 @@ const FileReader = require('./FileReader.js');
 /*
     JsonReader Class (reads for example classificationsamples.json)
     splits between "," (file) and ":" (per line) 
+    Author: Karim Saad
+    Month/Year: 08/2019
 */
 class JsonReader {
         

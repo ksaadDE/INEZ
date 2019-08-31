@@ -1,3 +1,9 @@
+/**
+ * INEZ Intelligente Einkaufsliste als Chatbot Version
+ * Author: Karim Saad 
+ * Month/Year: 08/2019
+ */
+
 // Modules to control application life and create native browser window
 const electron = require('electron');
 const {app, BrowserWindow} = require('electron');

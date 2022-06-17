@@ -8,7 +8,7 @@
   },
   "author": "Karim Saad",
   "devDependencies": {
-    "electron": "^6.0.7"
+    "electron": "^15.5.5"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
